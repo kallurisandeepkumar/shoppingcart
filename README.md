@@ -99,4 +99,6 @@ npm run build
 
 The build output will be in the `dist` directory.
 
+## Deployed on netlify
+https://app.netlify.com/sites/cartmanassignment/overview
 
