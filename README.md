@@ -100,4 +100,5 @@ npm run build
 The build output will be in the `dist` directory.
 
 ## Deployed on netlify
-[deployed here](https://cartmanassignment.netlify.app/)
+[deployed here
+](https://taskmanager-viamagus.netlify.app/)
