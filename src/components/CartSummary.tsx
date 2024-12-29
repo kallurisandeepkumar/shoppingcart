@@ -1,13 +1,15 @@
 import React from 'react';
+import { RefreshCw } from 'lucide-react';
 import { formatCurrency } from '../utils/format';
 
 interface CartSummaryProps {
   subtotal: number;
   discount: number;
   onDiscountChange: (discount: number) => void;
+  onResetCart: () => void;
 }
 
-export function CartSummary({ subtotal, discount, onDiscountChange }: CartSummaryProps) {
+export function CartSummary({ subtotal, discount, onDiscountChange, onResetCart }: CartSummaryProps) {
   const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.min(100, Math.max(0, Number(e.target.value) || 0));
     onDiscountChange(value);
@@ -17,8 +19,18 @@ export function CartSummary({ subtotal, discount, onDiscountChange }: CartSummar
   const total = subtotal - discountAmount;
 
   return (
-    <div className="bg-gray-50 p-6 rounded-lg">
-      <h2 className="text-xl font-semibold mb-4">Cart Summary</h2>
+    <div className="bg-white sm:bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-lg sm:text-xl font-semibold">Cart Summary</h2>
+        <button
+          onClick={onResetCart}
+          className="p-2 text-gray-500 hover:bg-gray-100 rounded-full flex items-center gap-2"
+          aria-label="Reset cart"
+        >
+          <RefreshCw className="w-4 h-4" />
+          <span className="text-sm">Reset</span>
+        </button>
+      </div>
       
       <div className="space-y-4">
         <div className="flex justify-between">
